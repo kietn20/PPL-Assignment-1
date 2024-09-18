@@ -1,18 +1,25 @@
 #include <stdio.h>
 
+// Quick sort algorithm
 void swap(int *a, int *b);
 void quick_sort(int *a, int n);
 void quick_sort_helper(int *a, int low, int high);
 int partition(int *a, int low, int high);
 
+// Merge sort algorithm
+
 int main()
 {
+    printf("Quick sort algorithm\n");
     int a[] = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
     int n = sizeof(a) / sizeof(a[0]);
     quick_sort(a, n);
     for (int i = 0; i < n; i++)
         printf("%d ", a[i]);
     printf("\n");
+
+    printf("Merge sort algorithm\n");
+    // ...
     return 0;
 }
 
