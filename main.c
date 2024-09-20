@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Quick sort algorithm
 void swap(int *a, int *b);
@@ -93,8 +94,9 @@ void merge(int *a, int left, int mid, int right)
     int left_length = mid - left + 1;
     int right_length = right - mid;
 
-    // temp arrays to store the left and right subarrays
-    int temp_left[left_length], temp_right[right_length];
+    // dynamically allocate temp arrays to store the left and right subarrays
+    int *temp_left = (int *)malloc(left_length * sizeof(int));
+    int *temp_right = (int *)malloc(right_length * sizeof(int));
 
     // Copy data to temp arrays to be merged
     for (int i = 0; i < left_length; i++)
@@ -135,4 +137,7 @@ void merge(int *a, int left, int mid, int right)
         j++;
         k++;
     }
+
+    free(temp_left);
+    free(temp_right);
 }
